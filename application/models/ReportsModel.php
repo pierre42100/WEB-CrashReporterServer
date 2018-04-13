@@ -82,6 +82,40 @@ class ReportsModel extends CI_Model {
 	}
 
 	/**
+	 * Check whether a report specified by its name exists or not
+	 *
+	 * @param Application $app Related application
+	 * @param string $name The name of the report to check
+	 * @return bool TRUE if the report exists / FALSE else
+	 */
+	public function exists_name(Application $app, string $name) : bool {
+
+		//Determine the path of the report
+		$path_report = $this->get_reports_dir($app).$name;
+
+		return file_exists($path_report);
+
+	}
+
+	/**
+	 * Get all the information about a single report
+	 *
+	 * @param Application $app The target application
+	 * @param string $name The name of the report
+	 * @return FullReport The report
+	 */
+	public function get_full(Application $app, string $name) : FullReport {
+
+		//Determine the path of the report
+		$path_report = $this->get_reports_dir($app).$name;
+
+		$report = new FullReport();
+		$this->readReportMetadata($path_report, $report);
+		$report->content = file_get_contents($path_report);
+		return $report;
+	}
+
+	/**
 	 * Get the reports target directory
 	 *
 	 * @param Application $app The target application

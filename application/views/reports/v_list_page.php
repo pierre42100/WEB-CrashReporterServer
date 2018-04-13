@@ -42,6 +42,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				<!-- Report action -->
 				<td>
 					
+					<!-- Open the report -->
+					<a class="button primary" href="<?php echo site_url('reports/view?app='.$app->id.'&report='.$report->name); ?>"><span class="mif-folder"></span></a>
+
 					<!-- Delete the report -->
 					<a class="button alert" href="<?php echo site_url('reports?app='.$app->id.'&delete_report='.$report->name); ?>"><span class="mif-bin"></span></a>
 
