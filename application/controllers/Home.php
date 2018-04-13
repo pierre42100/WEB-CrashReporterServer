@@ -16,7 +16,10 @@ class Home extends BaseController {
 	 */
 	public function index(){
 
-		
+		$page_src = "";
+
+		//Display the page
+		$this->display_page("Home page", $page_src);
 
 	}
 
