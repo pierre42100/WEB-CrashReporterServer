@@ -49,4 +49,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 		</tbody>
 	</table>
-</div><?php
+</div>
+
+<p style="text-align: center;">URL to push reports: <?php echo site_url("api/v1/push"); ?></p><?php
