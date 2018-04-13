@@ -20,5 +20,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
     <!-- Include CSS assets -->
     <link rel='stylesheet' href='<?php echo path_assets("3rdparty/metro/metro-all.min.css"); ?>'>
+    <link rel='stylesheet' href='<?php echo path_assets("css/main.css"); ?>'>
 
 </head>

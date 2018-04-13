@@ -1,0 +1,13 @@
+/**
+ * Main site stylesheet
+ *
+ * @author Pierre HUBERT
+ */
+
+.app-container {
+	max-width: 750px;
+	margin: auto;
+	margin-top: 10px;
+	border: 2px solid #eee;
+	padding: 10px;
+}
