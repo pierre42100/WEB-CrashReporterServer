@@ -44,6 +44,23 @@ class Applications extends CI_Model {
 	}
 
 	/**
+	 * Get an application by its key
+	 *
+	 * @param string $key The key of the application
+	 * @return Application Information about the application / invalid
+	 * object in case of failure
+	 */
+	public function get_by_key(string $key) : Application {
+
+		//Perform the request on the database
+		$this->db->from(self::TABLE_NAME);
+		$this->db->where("key", $key);
+
+		return $this->process_get_single();
+
+	}
+
+	/**
 	 * Perform and handle a request with multiple results
 	 *
 	 * @return array The list of applications
@@ -59,6 +76,26 @@ class Applications extends CI_Model {
 		}
 
 		return $list;
+
+	}
+
+	/**
+	 * Handle retrievement and processing of a single application entry
+	 *
+	 * @return Application Information about the application / Invalid application
+	 * object in case of failure
+	 */
+	private function process_get_single() : Application {
+
+		$query = $this->db->get();
+
+		//Process the list
+		foreach ($query->result() as $row) {
+			return $this->dbToApp($row);
+		}
+
+		//If we got there, the application was not found
+		return new Application();
 
 	}
 
