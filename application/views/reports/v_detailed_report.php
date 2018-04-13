@@ -24,5 +24,5 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<p></p>
 
 	<!-- Report content -->
-	<pre><?php echo $report->content; ?></pre>
+	<pre style="font-size: 80%;"><?php echo $report->content; ?></pre>
 </div>
