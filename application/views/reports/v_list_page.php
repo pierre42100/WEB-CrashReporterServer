@@ -10,6 +10,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 ?>
 <div class="app-container">
 	
+	<div class="place-right d-none d-block-lg" style="width: 200px;">
+		<span class="button alert" onclick="confirm_delete_all();">Delete all the reports</span>
+	</div>
+
 	<!-- Page title -->
 	<h2 class="page-title">
 		<a href="<?php echo site_url('apps'); ?>"><span class="mif-arrow-left page-title-icon"></span></a>
@@ -58,3 +62,19 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	</table>
 
 </div>
+
+<!-- Page scripts -->
+<script type="text/javascript">
+	
+/**
+ * Ask user confirmation before deleting all the reports
+ */
+function confirm_delete_all(){
+
+	if(confirm("Are you sure do you want to delete ALL the reports ? This can NOT be undone!")){
+		document.location.href = "<?php echo site_url('reports?app='.$app->id.'&delete_all_report=yes'); ?>";
+	}
+
+}
+
+</script>

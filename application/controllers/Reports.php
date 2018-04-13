@@ -45,6 +45,16 @@ class Reports extends BaseController {
 
 		}
 
+		//Check if a request has been made to delete all the reports
+		if($this->input->get("delete_all_report")){
+
+			//Try to delete the report
+			if(!$this->reports->delete_all($app))
+				$page_src .= $this->get_callout("An error occurred while trying to delete all the reports !", "alert");
+			else
+				$page_src .= $this->get_callout("All the reports were successfully deleted !", "success");
+
+		}
 
 		//Get the list of reports of the application
 		$reports = $this->reports->get_list_app($app);

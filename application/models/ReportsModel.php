@@ -58,6 +58,32 @@ class ReportsModel extends CI_Model {
 	}
 
 	/**
+	 * Delete all the reports of an application
+	 *
+	 * @param Application $app The target application
+	 * @return bool TRUE in case of success / FALSE
+	 */
+	public function delete_all(Application $app) : bool {
+
+		//Get the application reports target directory
+		$report_dir = $this->get_reports_dir($app);
+
+		//Check if the directory exists
+		if(!file_exists($report_dir))
+			return true; //Nothing to be done
+
+		$list = array();
+		foreach(glob($report_dir."*") as $file){
+			if(!unlink($file))
+				return false;
+		}
+
+
+		return true;
+
+	}
+
+	/**
 	 * Get the list of reports of an application
 	 *
 	 * @param Application $app The target application
