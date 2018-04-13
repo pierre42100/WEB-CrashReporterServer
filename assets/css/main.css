@@ -11,3 +11,15 @@
 	border: 2px solid #eee;
 	padding: 10px;
 }
+
+.page-title a {
+	color: black;
+}
+
+.page-title a:hover {
+	text-decoration: none;
+}
+
+.page-title-icon {
+	vertical-align: middle;
+}

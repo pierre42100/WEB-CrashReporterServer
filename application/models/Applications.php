@@ -61,6 +61,23 @@ class Applications extends CI_Model {
 	}
 
 	/**
+	 * Get an application by its ID
+	 *
+	 * @param int $id The id of the application
+	 * @return Application Information about the application / invalid
+	 * object in case of failure
+	 */
+	public function get_by_id(int $id) : Application {
+
+		//Perform the request on the database
+		$this->db->from(self::TABLE_NAME);
+		$this->db->where("id", $id);
+
+		return $this->process_get_single();
+
+	}
+
+	/**
 	 * Perform and handle a request with multiple results
 	 *
 	 * @return array The list of applications

@@ -135,5 +135,5 @@ $autoload['language'] = array();
 $autoload['model'] = array(
 	"account", "model/user", 
 	"applications", "model/application",
-	"reports"
+	"reportsModel" => "reports", "model/reportMetadata", "model/fullReport"
 );

@@ -26,10 +26,11 @@ class Home extends BaseController {
 	 */
 	public function index(){
 
-		$page_src = "";
+		//$page_src = "";
 
 		//Display the page
-		$this->display_page("Home page", $page_src);
+		//$this->display_page("Home page", $page_src);
+		redirect(site_url("apps"));
 
 	}
 

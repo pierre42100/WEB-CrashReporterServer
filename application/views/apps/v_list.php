@@ -36,6 +36,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 						<!-- Actions -->
 						<td>
+
+							<!-- Open reports -->
+							<a href="<?php echo site_url("reports?app=".$app->id); ?>" class="button success"><span class="mif-file-text"></span></a>
+
 						</td>
 
 					</tr><?php
