@@ -58,6 +58,29 @@ class Account extends CI_Model {
 	}
 
 	/**
+	 * Get current user information
+	 *
+	 * @return User Information about the current user
+	 */
+	public function get_current_info() : User {
+
+		//Perform a request in the database
+		$this->db->from(self::TABLE_NAME);
+		$this->db->where("id", $_SESSION[self::SESSION_VAR_NAME]);
+
+		return $this->process_get_single();
+
+	}
+
+	/**
+	 * Sign out the user
+	 */
+	public function sign_out(){
+		if(isset($_SESSION[self::SESSION_VAR_NAME]))
+			unset($_SESSION[self::SESSION_VAR_NAME]);
+	}
+
+	/**
 	 * Crypt user passord
 	 *
 	 * @param string $password Password in clear

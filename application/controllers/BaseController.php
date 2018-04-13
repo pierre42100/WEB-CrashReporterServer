@@ -24,6 +24,12 @@ class BaseController extends CI_Controller {
 			"title" => $title
 		), true);
 
+		//Append app bar to the source code if the user is signed in
+		if($this->account->signed_in())
+			$page_src = $this->load->view("common/v_appbar", array(
+				"user" => $this->account->get_current_info(),
+			), true) . $page_src;
+
 		//Get page body
 		$src .= $this->load->view("common/v_body", array(
 			"page_src" => $page_src

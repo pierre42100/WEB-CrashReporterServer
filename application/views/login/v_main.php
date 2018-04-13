@@ -7,8 +7,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
  * @author Pierre HUBERT
  */
 
-//Check for error
+//Check for error or success message
 $error = isset($error) ? $error : false;
+$success = isset($success) ? $success : false;
 
 ?>
 
@@ -39,6 +40,9 @@ $error = isset($error) ? $error : false;
 
 	<!-- Display error message (if any) -->
 	<?php if($error) echo "<div class='remark alert'>",$error,"</div>"; ?>
+
+	<!-- Display success message (if any) -->
+	<?php if($success) echo "<div class='remark success'>",$success,"</div>"; ?>
 
 	<div class="form-group">
 		<input type="text" data-role="input" name="email" data-prepend="<span class='mif-envelop'>" placeholder="Enter your email..." data-validate="required email" />
