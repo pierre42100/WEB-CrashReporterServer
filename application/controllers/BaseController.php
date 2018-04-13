@@ -40,4 +40,32 @@ class BaseController extends CI_Controller {
 
 	}
 
+	/**
+	 * Display a fatal error message and exit
+	 *
+	 * @param string $message The message to display on the screen
+	 * @param int $code The error code (default: 500)
+	 */
+	protected function exit_fatal(string $message, int $code = 500){
+
+		//Set the response code
+		http_response_code($code);
+
+		//Display a page with the fatal error
+		$this->display_page("Fatal error", "<div class='remark alert'>".$message."</div>");
+		exit();
+
+	}
+
+	/**
+	 * Generate a callout and return its source code
+	 *
+	 * @param string $message The message of the callout
+	 * @param string $kind The kind of callout
+	 * @return string Generated source code
+	 */
+	protected function get_callout(string $message, string $kind = "success") : string {
+		return "<div class='remark ".$kind." app-container'>".$message."</div>";
+	}
+
 }
